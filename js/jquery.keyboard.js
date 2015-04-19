@@ -2145,41 +2145,12 @@ var $keyboard = $.keyboard = function(el, options){
 		};
 	};
 
-	$(function(){
-		$keyboard.checkCaretSupport();
-	});
-
-	$.fn.keyboard = function(options){
-		return this.each(function(){
-			if (!$(this).data('keyboard')) {
-				/*jshint nonew:false */
-				(new $.keyboard(this, options));
-			}
-		});
-	};
-
-	$.fn.getkeyboard = function(){
-		return this.data('keyboard');
-	};
-
-	return $keyboard;
-
-}));
-
 /* Copyright (c) 2010 C. F., Wong (<a href="http://cloudgen.w0ng.hk">Cloudgen Examplet Store</a>)
  * Licensed under the MIT License:
  * http://www.opensource.org/licenses/mit-license.php
  * Highly modified from the original
   */
-(function(factory) {
-	if (typeof define === 'function' && define.amd) {
-		define(['jquery'], factory);
-	} else if (typeof module === 'object' && typeof module.exports === 'object') {
-		module.exports = factory(require('jquery'));
-	} else {
-		factory(jQuery);
-	}
-}(function($) {
+(function($) {
 'use strict';
 
 $.fn.caret = function( start, end ) {
@@ -2256,5 +2227,28 @@ $.fn.caret = function( start, end ) {
 		};
 	}
 };
+
+}($));
+
+
+	$(function(){
+		$keyboard.checkCaretSupport();
+	});
+
+	$.fn.keyboard = function(options){
+		return this.each(function(){
+			if (!$(this).data('keyboard')) {
+				/*jshint nonew:false */
+				(new $.keyboard(this, options));
+			}
+		});
+	};
+
+	$.fn.getkeyboard = function(){
+		return this.data('keyboard');
+	};
+
+	return $keyboard;
+
 
 }));
